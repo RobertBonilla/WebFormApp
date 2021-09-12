@@ -208,7 +208,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Domain\DetLista.cs" />
+    <Compile Include="Models\Domain\Lista.cs" />
+    <Compile Include="Models\Domain\Producto.cs" />
+    <Compile Include="Models\DTO\DetListaProducto.cs" />
+    <Compile Include="Models\DTO\ListaItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rest\ApiRest.cs" />
+    <Compile Include="Rest\Interfaces\IApiRest.cs" />
+    <Compile Include="Rest\Responses\GenericListResponse.cs" />
+    <Compile Include="Rest\Responses\GenericResponse.cs" />
+    <Compile Include="Rest\Responses\ResponseStatus.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
