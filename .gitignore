@@ -1,3 +1,6 @@
 #Archivos a ignorar
 App/WebApp/.vs
 App/WebApp/WebApp.Front/bin
+App/WebApp/WebApp.Front/obj
+App/WebApp/WebApp.Service/bin
+App/WebApp/WebApp.Front/obj
