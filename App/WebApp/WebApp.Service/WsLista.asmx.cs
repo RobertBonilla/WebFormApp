@@ -28,8 +28,8 @@ namespace WebApp.Service
         }
 
         [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json,UseHttpGet = true)]
-        public void GetLista()
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string GetLista()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
             GenericListResponse<Lista> response;
@@ -48,8 +48,10 @@ namespace WebApp.Service
                     Status = new ResponseStatus()
                     { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
                 };
-            }            
-            HttpContext.Current.Response.Write(ser.Serialize(response));
+            }
+            string JSONReturn = ser.Serialize(response);
+            //HttpContext.Current.Response.Write(JSONReturn);
+            return JSONReturn;
         }
     }
 }
