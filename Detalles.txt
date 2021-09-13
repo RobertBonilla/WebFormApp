@@ -1,0 +1,8 @@
+Prueba desarrollada 
+
+IDE: 		Visual Studio 2015
+Framework: 	4.7.2
+Base de Datos:  SqlServer
+Arquitectura:   Hexagonal (capas) [Front-Api-Core-Infraestructure]
+Front:		Asp Forms
+Back:		Web Service (asmx)
