@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webService.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webService.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webService.org/">
+      <s:element name="GetLista">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListaId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListaIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListaIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditLista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:Lista" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Lista">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ListaId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaCreacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaUpdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EditListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditListaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetListaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLista" />
+  </wsdl:message>
+  <wsdl:message name="GetListaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListaIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListaId" />
+  </wsdl:message>
+  <wsdl:message name="GetListaIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListaIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditListaSoapIn">
+    <wsdl:part name="parameters" element="tns:EditLista" />
+  </wsdl:message>
+  <wsdl:message name="EditListaSoapOut">
+    <wsdl:part name="parameters" element="tns:EditListaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsListaSoap">
+    <wsdl:operation name="GetLista">
+      <wsdl:input message="tns:GetListaSoapIn" />
+      <wsdl:output message="tns:GetListaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListaId">
+      <wsdl:input message="tns:GetListaIdSoapIn" />
+      <wsdl:output message="tns:GetListaIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLista">
+      <wsdl:input message="tns:EditListaSoapIn" />
+      <wsdl:output message="tns:EditListaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsListaSoap" type="tns:WsListaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLista">
+      <soap:operation soapAction="http://webService.org/GetLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListaId">
+      <soap:operation soapAction="http://webService.org/GetListaId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLista">
+      <soap:operation soapAction="http://webService.org/EditLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsListaSoap12" type="tns:WsListaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLista">
+      <soap12:operation soapAction="http://webService.org/GetLista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListaId">
+      <soap12:operation soapAction="http://webService.org/GetListaId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLista">
+      <soap12:operation soapAction="http://webService.org/EditLista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsLista">
+    <wsdl:port name="WsListaSoap" binding="tns:WsListaSoap">
+      <soap:address location="http://localhost:30251/WsLista.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsListaSoap12" binding="tns:WsListaSoap12">
+      <soap12:address location="http://localhost:30251/WsLista.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

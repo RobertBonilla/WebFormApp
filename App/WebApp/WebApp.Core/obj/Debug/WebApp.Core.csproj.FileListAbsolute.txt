@@ -1,0 +1,5 @@
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Core\bin\Debug\WebApp.Core.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Core\bin\Debug\WebApp.Core.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Core\obj\Debug\WebApp.Core.csprojResolveAssemblyReference.cache
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Core\obj\Debug\WebApp.Core.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Core\obj\Debug\WebApp.Core.pdb

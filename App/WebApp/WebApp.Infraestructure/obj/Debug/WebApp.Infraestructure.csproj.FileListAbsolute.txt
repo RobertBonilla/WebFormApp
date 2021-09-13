@@ -1,0 +1,9 @@
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\WebApp.Infraestructure.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\WebApp.Infraestructure.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\WebApp.Core.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\WebApp.Core.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\obj\Debug\WebApp.Infraestructure.csprojResolveAssemblyReference.cache
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\obj\Debug\WebApp.Infraestructure.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\obj\Debug\WebApp.Infraestructure.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\System.Data.SqlClient.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Infraestructure\bin\Debug\System.Data.SqlClient.xml
