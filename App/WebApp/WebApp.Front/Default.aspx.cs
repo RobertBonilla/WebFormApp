@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using WebApp.Front.Models.Domain;
 using WebApp.Front.Rest;
 using WebApp.Front.Rest.Responses;
@@ -22,6 +23,13 @@ namespace WebApp.Front
                 tblLista.DataSource = response.Items;
                 tblLista.DataBind();
             }
+        }
+
+        protected void EditarLista(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            Session["prmEdit"] = btn.CommandArgument.ToString();
+            Response.Redirect("EditLIst.aspx", true);
         }
     }
 }

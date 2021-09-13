@@ -18,19 +18,19 @@ namespace WebApp.Front.Rest
             throw new NotImplementedException();
         }
 
-        public GenericListResponse<Lista> getList()
+        public GenericListResponse<WebApp.Front.Models.Domain.Lista> getList()
         {
-            GenericListResponse<Lista> response;
+            GenericListResponse<WebApp.Front.Models.Domain.Lista> response;
             try
             {
                 WsListaSoapClient wsLista = new WsListaSoapClient();
                 JavaScriptSerializer ser = new JavaScriptSerializer();
                 string JSONData = wsLista.GetLista();
-                response = ser.Deserialize<GenericListResponse<Lista>>(JSONData);
+                response = ser.Deserialize<GenericListResponse<WebApp.Front.Models.Domain.Lista>>(JSONData);
             }
             catch (Exception ex)
             {
-                response = new GenericListResponse<Lista>()
+                response = new GenericListResponse<WebApp.Front.Models.Domain.Lista>()
                 {
                     Status = new ResponseStatus()
                     { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
@@ -44,14 +44,52 @@ namespace WebApp.Front.Rest
             throw new NotImplementedException();
         }
 
-        public GenericResponse<Lista> getListaModel(int idLista)
+        public GenericResponse<WebApp.Front.Models.Domain.Lista> getListaModel(int idLista)
         {
-            throw new NotImplementedException();
+            GenericResponse<WebApp.Front.Models.Domain.Lista> response;
+            try
+            {
+                WsListaSoapClient wsLista = new WsListaSoapClient();
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                string JSONData = wsLista.GetListaId(idLista);
+                response = ser.Deserialize<GenericResponse<WebApp.Front.Models.Domain.Lista>>(JSONData);
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<WebApp.Front.Models.Domain.Lista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return response;
         }
 
-        public GenericResponse<Lista> modificarLista(Lista model)
+        public GenericResponse<WebApp.Front.Models.Domain.Lista> modificarLista(WebApp.Front.Models.Domain.Lista model)
         {
-            throw new NotImplementedException();
+            GenericResponse<WebApp.Front.Models.Domain.Lista> response;
+            try
+            {
+                WsListaSoapClient wsLista = new WsListaSoapClient();
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                WebApp.Front.WebServiceLista.Lista newModel = new WebServiceLista.Lista() {
+                    ListaId = model.ListaId,
+                    FechaCreacion = model.FechaCreacion,
+                    FechaUpdate = model.FechaUpdate,
+                    Descripcion = model.Descripcion
+                };
+                string JSONData = wsLista.EditLista(newModel);
+                response = ser.Deserialize<GenericResponse<WebApp.Front.Models.Domain.Lista>>(JSONData);
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<WebApp.Front.Models.Domain.Lista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return response;
         }
     }
 }

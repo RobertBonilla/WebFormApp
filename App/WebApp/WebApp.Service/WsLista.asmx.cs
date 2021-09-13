@@ -17,8 +17,6 @@ namespace WebApp.Service
     [WebService(Namespace = "http://webService.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
     public class WsLista : System.Web.Services.WebService
     {
         private readonly IListaUseCase _userCase;
@@ -49,9 +47,56 @@ namespace WebApp.Service
                     { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
                 };
             }
-            string JSONReturn = ser.Serialize(response);
-            //HttpContext.Current.Response.Write(JSONReturn);
-            return JSONReturn;
+            return ser.Serialize(response);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string GetListaId(int ListaId)
+        {
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            GenericResponse<Lista> response;
+            try
+            {
+                response = new GenericResponse<Lista>()
+                {
+                    Status = new ResponseStatus() { HttpCode = HttpStatusCode.OK },
+                    Item = _userCase.GetLista(new Lista() { ListaId = ListaId })
+                };
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<Lista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return ser.Serialize(response);
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string EditLista(Lista Lista)
+        {
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            GenericResponse<Lista> response;
+            try
+            {
+                response = new GenericResponse<Lista>()
+                {
+                    Status = new ResponseStatus() { HttpCode = HttpStatusCode.OK },
+                    Item = _userCase.ModificarLista(Lista)
+                };
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<Lista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return ser.Serialize(response);
         }
     }
 }

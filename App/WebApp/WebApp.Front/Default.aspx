@@ -24,8 +24,8 @@
                             <td> <%# Item.FechaUpdate %></td>
                             <td> <%# Item.Descripcion %></td>
                             <td> 
-                                <asp:Button ID="btnEdit" runat="server" Text="Editar" CssClass="btn btn-success"/>
-                                <asp:Button ID="brnView" runat="server" Text="Ver" CssClass="btn btn-info"/>
+                                <asp:Button ID="btnEdit" runat="server" Text="Editar" OnClick="EditarLista" CommandArgument='<%# Item.ListaId%>' CssClass="btn btn-success"/>
+                                <asp:Button ID="brnView" runat="server" Text="Ver"  OnClick="EditarLista" CommandArgument='<%# Item.ListaId%>' CssClass="btn btn-info"/>
                             </td>
                         </tr>
                     </ItemTemplate>

@@ -9,7 +9,101 @@
 //------------------------------------------------------------------------------
 
 namespace WebApp.Front.WebServiceLista {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Lista", Namespace="http://webService.org/")]
+    [System.SerializableAttribute()]
+    public partial class Lista : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ListaIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaCreacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaUpdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ListaId {
+            get {
+                return this.ListaIdField;
+            }
+            set {
+                if ((this.ListaIdField.Equals(value) != true)) {
+                    this.ListaIdField = value;
+                    this.RaisePropertyChanged("ListaId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string FechaCreacion {
+            get {
+                return this.FechaCreacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaCreacionField, value) != true)) {
+                    this.FechaCreacionField = value;
+                    this.RaisePropertyChanged("FechaCreacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string FechaUpdate {
+            get {
+                return this.FechaUpdateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaUpdateField, value) != true)) {
+                    this.FechaUpdateField = value;
+                    this.RaisePropertyChanged("FechaUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webService.org/", ConfigurationName="WebServiceLista.WsListaSoap")]
@@ -21,6 +115,20 @@ namespace WebApp.Front.WebServiceLista {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://webService.org/GetLista", ReplyAction="*")]
         System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.GetListaResponse> GetListaAsync(WebApp.Front.WebServiceLista.GetListaRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetListaIdResult from namespace http://webService.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webService.org/GetListaId", ReplyAction="*")]
+        WebApp.Front.WebServiceLista.GetListaIdResponse GetListaId(WebApp.Front.WebServiceLista.GetListaIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webService.org/GetListaId", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.GetListaIdResponse> GetListaIdAsync(WebApp.Front.WebServiceLista.GetListaIdRequest request);
+        
+        // CODEGEN: Generating message contract since element name Lista from namespace http://webService.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webService.org/EditLista", ReplyAction="*")]
+        WebApp.Front.WebServiceLista.EditListaResponse EditLista(WebApp.Front.WebServiceLista.EditListaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webService.org/EditLista", ReplyAction="*")]
+        System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.EditListaResponse> EditListaAsync(WebApp.Front.WebServiceLista.EditListaRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -84,6 +192,142 @@ namespace WebApp.Front.WebServiceLista {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetListaIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetListaId", Namespace="http://webService.org/", Order=0)]
+        public WebApp.Front.WebServiceLista.GetListaIdRequestBody Body;
+        
+        public GetListaIdRequest() {
+        }
+        
+        public GetListaIdRequest(WebApp.Front.WebServiceLista.GetListaIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://webService.org/")]
+    public partial class GetListaIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int ListaId;
+        
+        public GetListaIdRequestBody() {
+        }
+        
+        public GetListaIdRequestBody(int ListaId) {
+            this.ListaId = ListaId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetListaIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetListaIdResponse", Namespace="http://webService.org/", Order=0)]
+        public WebApp.Front.WebServiceLista.GetListaIdResponseBody Body;
+        
+        public GetListaIdResponse() {
+        }
+        
+        public GetListaIdResponse(WebApp.Front.WebServiceLista.GetListaIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://webService.org/")]
+    public partial class GetListaIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetListaIdResult;
+        
+        public GetListaIdResponseBody() {
+        }
+        
+        public GetListaIdResponseBody(string GetListaIdResult) {
+            this.GetListaIdResult = GetListaIdResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditListaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditLista", Namespace="http://webService.org/", Order=0)]
+        public WebApp.Front.WebServiceLista.EditListaRequestBody Body;
+        
+        public EditListaRequest() {
+        }
+        
+        public EditListaRequest(WebApp.Front.WebServiceLista.EditListaRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://webService.org/")]
+    public partial class EditListaRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public WebApp.Front.WebServiceLista.Lista Lista;
+        
+        public EditListaRequestBody() {
+        }
+        
+        public EditListaRequestBody(WebApp.Front.WebServiceLista.Lista Lista) {
+            this.Lista = Lista;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EditListaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="EditListaResponse", Namespace="http://webService.org/", Order=0)]
+        public WebApp.Front.WebServiceLista.EditListaResponseBody Body;
+        
+        public EditListaResponse() {
+        }
+        
+        public EditListaResponse(WebApp.Front.WebServiceLista.EditListaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://webService.org/")]
+    public partial class EditListaResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string EditListaResult;
+        
+        public EditListaResponseBody() {
+        }
+        
+        public EditListaResponseBody(string EditListaResult) {
+            this.EditListaResult = EditListaResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WsListaSoapChannel : WebApp.Front.WebServiceLista.WsListaSoap, System.ServiceModel.IClientChannel {
     }
@@ -132,6 +376,56 @@ namespace WebApp.Front.WebServiceLista {
             WebApp.Front.WebServiceLista.GetListaRequest inValue = new WebApp.Front.WebServiceLista.GetListaRequest();
             inValue.Body = new WebApp.Front.WebServiceLista.GetListaRequestBody();
             return ((WebApp.Front.WebServiceLista.WsListaSoap)(this)).GetListaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebApp.Front.WebServiceLista.GetListaIdResponse WebApp.Front.WebServiceLista.WsListaSoap.GetListaId(WebApp.Front.WebServiceLista.GetListaIdRequest request) {
+            return base.Channel.GetListaId(request);
+        }
+        
+        public string GetListaId(int ListaId) {
+            WebApp.Front.WebServiceLista.GetListaIdRequest inValue = new WebApp.Front.WebServiceLista.GetListaIdRequest();
+            inValue.Body = new WebApp.Front.WebServiceLista.GetListaIdRequestBody();
+            inValue.Body.ListaId = ListaId;
+            WebApp.Front.WebServiceLista.GetListaIdResponse retVal = ((WebApp.Front.WebServiceLista.WsListaSoap)(this)).GetListaId(inValue);
+            return retVal.Body.GetListaIdResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.GetListaIdResponse> WebApp.Front.WebServiceLista.WsListaSoap.GetListaIdAsync(WebApp.Front.WebServiceLista.GetListaIdRequest request) {
+            return base.Channel.GetListaIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.GetListaIdResponse> GetListaIdAsync(int ListaId) {
+            WebApp.Front.WebServiceLista.GetListaIdRequest inValue = new WebApp.Front.WebServiceLista.GetListaIdRequest();
+            inValue.Body = new WebApp.Front.WebServiceLista.GetListaIdRequestBody();
+            inValue.Body.ListaId = ListaId;
+            return ((WebApp.Front.WebServiceLista.WsListaSoap)(this)).GetListaIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebApp.Front.WebServiceLista.EditListaResponse WebApp.Front.WebServiceLista.WsListaSoap.EditLista(WebApp.Front.WebServiceLista.EditListaRequest request) {
+            return base.Channel.EditLista(request);
+        }
+        
+        public string EditLista(WebApp.Front.WebServiceLista.Lista Lista) {
+            WebApp.Front.WebServiceLista.EditListaRequest inValue = new WebApp.Front.WebServiceLista.EditListaRequest();
+            inValue.Body = new WebApp.Front.WebServiceLista.EditListaRequestBody();
+            inValue.Body.Lista = Lista;
+            WebApp.Front.WebServiceLista.EditListaResponse retVal = ((WebApp.Front.WebServiceLista.WsListaSoap)(this)).EditLista(inValue);
+            return retVal.Body.EditListaResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.EditListaResponse> WebApp.Front.WebServiceLista.WsListaSoap.EditListaAsync(WebApp.Front.WebServiceLista.EditListaRequest request) {
+            return base.Channel.EditListaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebApp.Front.WebServiceLista.EditListaResponse> EditListaAsync(WebApp.Front.WebServiceLista.Lista Lista) {
+            WebApp.Front.WebServiceLista.EditListaRequest inValue = new WebApp.Front.WebServiceLista.EditListaRequest();
+            inValue.Body = new WebApp.Front.WebServiceLista.EditListaRequestBody();
+            inValue.Body.Lista = Lista;
+            return ((WebApp.Front.WebServiceLista.WsListaSoap)(this)).EditListaAsync(inValue);
         }
     }
 }
