@@ -25,7 +25,7 @@
         </div>
         <div class="input-group">
             <br />
-            <asp:Button ID="btnSave" runat="server" Text="Guardar" OnClick="Modificar" AutoPostBack="false" CssClass="btn btn-primary"/>
+            <asp:Button ID="btnSave" runat="server" Text="Guardar" OnClick="Modificar" AutoPostBack="false" CssClass="btn btn-primary" OnClientClick="return confirm('Seguro que desea Modificar?');"/>
             <asp:Button ID="btnReturn" runat="server" Text="Regresar" OnClick="Regresar" CssClass="btn btn-info"/>
         </div>
 </div>

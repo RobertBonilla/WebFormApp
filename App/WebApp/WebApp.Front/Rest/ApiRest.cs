@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using WebApp.Front.Models.Domain;
 using WebApp.Front.Models.DTO;
 using WebApp.Front.Rest.Interfaces;
 using WebApp.Front.Rest.Responses;
 using WebApp.Front.WebServiceLista;
-using System.Web.Script.Services;
+using WebApp.Front.WebServiceListaDetail;
 using System.Web.Script.Serialization;
 using System.Net;
 
@@ -13,9 +12,29 @@ namespace WebApp.Front.Rest
 {
     public class ApiRest : IApiRest
     {
-        public GenericResponse<DetLista> eliminarDetail(DetLista model)
+        public GenericResponse<WebApp.Front.Models.Domain.DetLista> eliminarDetail(WebApp.Front.Models.Domain.DetLista model)
         {
-            throw new NotImplementedException();
+            GenericResponse<WebApp.Front.Models.Domain.DetLista> response;
+            try
+            {
+                WsListaDetailSoapClient wsListaDetail = new WsListaDetailSoapClient();
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                WebApp.Front.WebServiceListaDetail.DetLista newModel = new WebServiceListaDetail.DetLista()
+                {
+                    DetListaId = model.DetListaId,
+                };
+                string JSONData = wsListaDetail.DeleteListaItemId(newModel);
+                response = ser.Deserialize<GenericResponse<WebApp.Front.Models.Domain.DetLista>>(JSONData);
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<WebApp.Front.Models.Domain.DetLista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return response;
         }
 
         public GenericListResponse<WebApp.Front.Models.Domain.Lista> getList()
@@ -41,7 +60,23 @@ namespace WebApp.Front.Rest
 
         public GenericResponse<ListaItems> getListaData(int ListaId)
         {
-            throw new NotImplementedException();
+            GenericResponse<ListaItems> response;
+            try
+            {
+                WsListaDetailSoapClient wsListaDetail = new WsListaDetailSoapClient();
+                JavaScriptSerializer ser = new JavaScriptSerializer();
+                string JSONData = wsListaDetail.GetListaItemsId(ListaId);
+                response = ser.Deserialize<GenericResponse<ListaItems>>(JSONData);
+            }
+            catch (Exception ex)
+            {
+                response = new GenericResponse<ListaItems>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }
+            return response;
         }
 
         public GenericResponse<WebApp.Front.Models.Domain.Lista> getListaModel(int idLista)

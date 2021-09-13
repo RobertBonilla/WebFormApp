@@ -140,6 +140,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Detail.aspx" />
     <Content Include="EditList.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -183,6 +184,19 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Service References\WebServiceListaDetail\WebApp.Front.WebServiceListaDetail.DeleteListaItemIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WebServiceListaDetail\WebApp.Front.WebServiceListaDetail.GetListaItemsIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\WebServiceListaDetail\WsListaDetail.disco" />
+    <None Include="Service References\WebServiceListaDetail\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceListaDetail\configuration.svcinfo" />
+    <None Include="Service References\WebServiceListaDetail\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\WebServiceLista\WebApp.Front.WebServiceLista.GetListaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -192,6 +206,7 @@
     <Content Include="Service References\WebServiceLista\WebApp.Front.WebServiceLista.EditListaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\WebServiceListaDetail\WsListaDetail.wsdl" />
     <None Include="Service References\WebServiceLista\WsLista.disco" />
     <None Include="Service References\WebServiceLista\configuration91.svcinfo" />
     <None Include="Service References\WebServiceLista\configuration.svcinfo" />
@@ -225,6 +240,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditList.aspx.cs">
       <DependentUpon>EditList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +268,11 @@
     <Compile Include="Rest\Responses\GenericListResponse.cs" />
     <Compile Include="Rest\Responses\GenericResponse.cs" />
     <Compile Include="Rest\Responses\ResponseStatus.cs" />
+    <Compile Include="Service References\WebServiceListaDetail\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WebServiceLista\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -277,6 +304,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebServiceListaDetail\" />
     <WCFMetadataStorage Include="Service References\WebServiceLista\" />
   </ItemGroup>
   <PropertyGroup>

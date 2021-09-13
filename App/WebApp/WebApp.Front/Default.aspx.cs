@@ -29,7 +29,14 @@ namespace WebApp.Front
         {
             Button btn = (Button)sender;
             Session["prmEdit"] = btn.CommandArgument.ToString();
-            Response.Redirect("EditLIst.aspx", true);
+            Response.Redirect("EditList.aspx", true);
+        }
+
+        protected void EditarDetail(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            Session["prmDetEdit"] = btn.CommandArgument.ToString();
+            Response.Redirect("Detail.aspx", true);
         }
     }
 }
