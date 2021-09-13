@@ -6,6 +6,11 @@ using System.Web.Services;
 using WebApp.Service.Commond.Responses;
 using System.Web.Script.Services;
 using System.Web.Script.Serialization;
+using WebApp.Core.Interfaces;
+using WebApp.Core.UseCase;
+using WebApp.Infraestructure.Repository;
+using WebApp.Core.Domain;
+using System.Net;
 
 namespace WebApp.Service
 {
@@ -16,16 +21,34 @@ namespace WebApp.Service
     // [System.Web.Script.Services.ScriptService]
     public class WsLista : System.Web.Services.WebService
     {
+        private readonly IListaUseCase _userCase;
+        public WsLista()
+        {
+            _userCase = new ListaUseCase(new ListaRepository());
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json,UseHttpGet = true)]
-        public void HelloWorld()
+        public void GetLista()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            GenericListResponse<string> response = new GenericListResponse<string>();
-            List<string> myList = new List<string>();
-            myList.Add("Hola mundo");
-            response.Items = myList;
+            GenericListResponse<Lista> response;
+            try
+            {
+                response = new GenericListResponse<Lista>()
+                {
+                    Status = new ResponseStatus() { HttpCode = HttpStatusCode.OK },
+                    Items = _userCase.ObtenerLista()
+                };
+            }
+            catch (Exception ex)
+            {
+                response = new GenericListResponse<Lista>()
+                {
+                    Status = new ResponseStatus()
+                    { HttpCode = HttpStatusCode.InternalServerError, Message = ex.ToString() }
+                };
+            }            
             HttpContext.Current.Response.Write(ser.Serialize(response));
         }
     }

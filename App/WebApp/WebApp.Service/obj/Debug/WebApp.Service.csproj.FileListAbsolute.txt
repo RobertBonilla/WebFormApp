@@ -4,3 +4,7 @@ C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\bin\WebApp.Ser
 C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\obj\Debug\WebApp.Service.csprojResolveAssemblyReference.cache
 C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\obj\Debug\WebApp.Service.dll
 C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\obj\Debug\WebApp.Service.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\bin\WebApp.Core.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\bin\WebApp.Infraestructure.dll
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\bin\WebApp.Core.pdb
+C:\Users\crobe\Documents\GIT\WebFormApp\App\WebApp\WebApp.Service\bin\WebApp.Infraestructure.pdb

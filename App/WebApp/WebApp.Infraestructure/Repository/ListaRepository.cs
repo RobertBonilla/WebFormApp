@@ -24,7 +24,14 @@ namespace WebApp.Infraestructure.Repository
 
         public IEnumerable<Lista> ObtenerLista()
         {
-            throw new NotImplementedException();
+            List<Lista> list = new List<Lista>();
+            list.Add(new Lista()
+            {
+                FechaCreacion = "01/09/2021",
+                FechaUpdate = "02/09/2021",
+                Descripcion = "Prueba"
+            });
+            return list;
         }
     }
 }

@@ -74,6 +74,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.Core\WebApp.Core.csproj">
+      <Project>{35ba7ea9-2e84-413b-8272-433c8244cf21}</Project>
+      <Name>WebApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Infraestructure\WebApp.Infraestructure.csproj">
+      <Project>{f7274950-3bba-4cdc-8579-7db825a60fab}</Project>
+      <Name>WebApp.Infraestructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
